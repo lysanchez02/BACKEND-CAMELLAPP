@@ -35,13 +35,12 @@ router.get('/postulante/:id', controladorPostulante.ListarId2);
 router.post('/GuardarPostulante', controladorPostulante.GuardarPostulante);
 router.delete('/eliminarpostulante/:id', controladorPostulante.EliminarPostulante);
 
-
-
+/*
 router.get('/ListarOfertaNombre/:nombres',controladorOfertas.ListarOfertaNombre);
 router.get('/ListarOfertas',controladorOfertas.ListarOfertas);
 router.post('/GuardarOferta', controladorOfertas.GuardarOferta);
 router.delete('/EliminarOferta/:id', controladorOfertas.EliminarOferta);
-
+*/
 
 /*rutas de consultas*/
 
