@@ -1,4 +1,5 @@
 const Sequelize = require('sequelize');
+
 const postulantes = require ("../models").postulante;
 
 module.exports=
@@ -49,5 +50,5 @@ module.exports=
       .catch(error => res.status(400).send(error));
   },
     
-  }
+}
   

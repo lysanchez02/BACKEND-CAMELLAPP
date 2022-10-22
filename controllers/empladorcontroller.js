@@ -8,6 +8,7 @@ module.exports=
     return empleadores.findAll({})
     .then(empleadores => res.status(200).send(empleadores))
     .catch(error => res.status(400).send(error));
+
   },
 
   ListarId(req, res) {
