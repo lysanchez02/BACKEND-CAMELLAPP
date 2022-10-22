@@ -2,6 +2,8 @@
 const {
   Model
 } = require('sequelize');
+const categoria = require('./categoria');
+const postulante = require('./postulante');
 module.exports = (sequelize, DataTypes) => {
   class intereses extends Model {
     /**
@@ -11,12 +13,40 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+  
+      intereses.belongsTo(models.categoria, {foreignKey: 'id_categoria'});
+      intereses.belongsTo(models.postulante, {foreignKey: 'id_postulante'});
+
     }
   }
   intereses.init({
-    id_intereses: DataTypes.INTEGER,
-    id_categoria: DataTypes.INTEGER,
-    id_postulante: DataTypes.INTEGER
+    id: {
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true,
+      type: DataTypes.INTEGER
+    },
+    id_categoria: {
+      type: DataTypes.INTEGER,
+      references:{
+        model: {
+          tableName:'categoria',
+        },
+        key: 'id'
+      },
+      allowNull: false
+    },
+
+    id_postulante: {
+      type: DataTypes.INTEGER,
+      references:{
+        model: {
+          tableName:'postulante',
+        },
+        key: 'id'
+      },
+      allowNull: false
+    },
   }, {
     sequelize,
     modelName: 'intereses',

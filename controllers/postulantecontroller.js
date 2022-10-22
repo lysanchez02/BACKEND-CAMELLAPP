@@ -1,5 +1,7 @@
 const Sequelize = require('sequelize');
+
 const postulantes = require ("../models").postulante;
+
 
 module.exports=
 {
@@ -48,6 +50,10 @@ module.exports=
       .then(() => res.status(200).send(true))
       .catch(error => res.status(400).send(error));
   },
+
+
+
+
     
   }
   
