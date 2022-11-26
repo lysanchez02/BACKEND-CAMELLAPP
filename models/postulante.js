@@ -5,6 +5,7 @@ const {
 const intereses = require('./intereses');
 const postulaciones = require('./postulaciones');
 const registrocatalogo = require('./registrocatalogo');
+const usuario = require('./usuario');
 module.exports = (sequelize, DataTypes) => {
   class postulante extends Model {
     /**
@@ -17,6 +18,7 @@ module.exports = (sequelize, DataTypes) => {
       postulante.hasMany(models.intereses, {foreignKey: 'id_postulante'});
       postulante.hasMany(models.postulaciones, {foreignKey: 'id_postulante'});
       postulante.hasMany(models.registrocatalogo, {foreignKey: 'id_postulante'});
+      postulante.belongsTo(models.usuario, {foreignKey: 'id_usuario'});
     }
   }
   postulante.init({
